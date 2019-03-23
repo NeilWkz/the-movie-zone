@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import UserView from "@/views/UserView"
+import UserView from "@/views/UserView";
 
 Vue.use(Router);
 
