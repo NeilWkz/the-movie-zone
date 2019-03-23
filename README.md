@@ -1,4 +1,13 @@
-# the-movie-zone
+# The Movie Zone
+(I bet everyone makes that pun..)
+
+An App for displaying "Now Showing Movies", build with Vue, Vuex.
+
+With Help from Vue-cli, Bootstrap.
+## Run Test Watcher
+```
+npm run test:unit:watch
+```
 
 ## Project setup
 ```
