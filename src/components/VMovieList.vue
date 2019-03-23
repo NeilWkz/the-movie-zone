@@ -1,11 +1,8 @@
 <script>
 export default {
-    name: 'MovieList',
-
-}
+  name: "MovieList"
+};
 </script>
 <template>
-    <div>
-        Movie List
-    </div>
+  <div>Movie List</div>
 </template>

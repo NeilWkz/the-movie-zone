@@ -1,6 +1,6 @@
 <script>
-import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import VMovieList from "@/components/VMovieList";
+import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 export default {
   name: "UserView",
   components: {
