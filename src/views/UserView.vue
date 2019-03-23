@@ -20,6 +20,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("GET_MOVIES");
+    this.$store.dispatch("GET_GENRES");
   }
 };
 </script>

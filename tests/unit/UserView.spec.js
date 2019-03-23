@@ -7,6 +7,7 @@ import VMovieList from "@/components/VMovieList";
 import initialState from "@/store/state";
 import actions from "@/store/actions";
 import moviesFixture from "./fixtures/movies";
+import genresFixture from "./fixtures/genres";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -77,6 +78,17 @@ describe("UserView", () => {
     expect(actions.GET_MOVIES).toHaveBeenCalled();
     expect(actions.GET_MOVIES.mock.calls[0][0].state.movies).toEqual(
       state.movies
+    );
+  });
+  it("Gets the Genres from the api for the Genre Filters", () => {
+    //arrange
+    state.genres = genresFixture;
+    const { wrapper } = build();
+
+    //assert
+    expect(actions.GET_GENRES).toHaveBeenCalled();
+    expect(actions.GET_GENRES.mock.calls[0][0].state.genres).toEqual(
+      state.genres
     );
   });
 });
