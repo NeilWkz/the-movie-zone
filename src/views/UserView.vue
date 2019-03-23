@@ -1,4 +1,5 @@
 <script>
+import { mapState } from "vuex";
 import VMovieList from "@/components/VMovieList";
 import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 export default {
@@ -6,6 +7,11 @@ export default {
   components: {
     VMovieList,
     VRatingRangeCtrl
+  },
+  computed: {
+    ...mapState({
+      movies: "movies"
+    })
   },
   data() {
     return {
@@ -16,8 +22,7 @@ export default {
 </script>
 <template>
   <div>
-   
     <VRatingRangeCtrl :rating="rating"/>
-     <VMovieList/>
+     <VMovieList :movies="movies"/>
   </div>
 </template>

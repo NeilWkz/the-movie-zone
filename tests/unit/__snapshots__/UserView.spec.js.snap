@@ -3,6 +3,6 @@
 exports[`UserView renders the component 1`] = `
 <div>
   <vratingrangectrl-stub rating="[object Object]"></vratingrangectrl-stub>
-  <vmovielist-stub></vmovielist-stub>
+  <vmovielist-stub movies="[object Object]"></vmovielist-stub>
 </div>
 `;

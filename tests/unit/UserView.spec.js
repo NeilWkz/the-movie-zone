@@ -61,6 +61,6 @@ describe("UserView", () => {
     const { userMovieList } = build();
 
     // assert
-    expect(userMovieList().vm.user).toBe(state.movies);
+    expect(userMovieList().vm.movies).toBe(state.movies);
   });
 });

@@ -1,6 +1,12 @@
 <script>
 export default {
-  name: "MovieList"
+  name: "MovieList",
+  props: {
+    movies: {
+      type: Object,
+      required: true
+    }
+  }
 };
 </script>
 <template>
