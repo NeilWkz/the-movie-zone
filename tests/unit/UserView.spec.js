@@ -1,9 +1,11 @@
+jest.mock("@/store/actions");
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
 import UserView from "@/views/UserView";
 import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import VMovieList from "@/components/VMovieList";
 import initialState from "@/store/state";
+import actions from "@/store/actions";
 import moviesFixture from "./fixtures/movies";
 
 const localVue = createLocalVue();
@@ -11,10 +13,11 @@ localVue.use(Vuex);
 
 describe("UserView", () => {
   let state;
+
   const build = () => {
     const wrapper = shallowMount(UserView, {
       localVue,
-      store: new Vuex.Store({ state })
+      store: new Vuex.Store({ state, actions })
     });
 
     return {
@@ -24,6 +27,7 @@ describe("UserView", () => {
     };
   };
   beforeEach(() => {
+    jest.resetAllMocks();
     state = { ...initialState };
   });
 
@@ -63,4 +67,15 @@ describe("UserView", () => {
     // assert
     expect(userMovieList().vm.movies).toBe(state.movies);
   });
+  
+  it('Gets the movies from the api for the movie list component', () => {
+    //arrange
+    state.movies = moviesFixture;
+    const { userMovieList } = build();
+
+    //assert
+    expect(actions.GET_MOVIES).toHaveBeenCalled();
+    expect(actions.GET_MOVIES.mock.calls[0][0].state.movies).toEqual(state.movies);
+
+})
 });
