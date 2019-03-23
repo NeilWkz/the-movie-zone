@@ -16,5 +16,8 @@ export default {
 };
 </script>
 <template>
-  <div>V RatingRange Ctrl</div>
+  <div>
+    Rating Range Ctrl
+    <vue-slider v-model="value" :min="0" :max="10" :interval="0.5"></vue-slider>
+  </div>
 </template>
