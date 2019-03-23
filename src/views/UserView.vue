@@ -16,7 +16,8 @@ export default {
 </script>
 <template>
   <div>
-    <VMovieList/>
+   
     <VRatingRangeCtrl :rating="rating"/>
+     <VMovieList/>
   </div>
 </template>
