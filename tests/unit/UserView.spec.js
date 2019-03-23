@@ -1,11 +1,21 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
+import Vuex from "vuex";
 import UserView from "@/views/UserView";
 import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import VMovieList from "@/components/VMovieList";
+import initialState from "@/store/state";
+import moviesFixture from "./fixtures/movies";
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("UserView", () => {
+  let state;
   const build = () => {
-    const wrapper = shallowMount(UserView);
+    const wrapper = shallowMount(UserView, {
+      localVue,
+      store: new Vuex.Store({ state })
+    });
 
     return {
       wrapper,
@@ -13,6 +23,9 @@ describe("UserView", () => {
       userRatingRangeCtrl: () => wrapper.find(VRatingRangeCtrl)
     };
   };
+  beforeEach(() => {
+    state = { ...initialState };
+  });
 
   it("renders the component", () => {
     // arrange
@@ -40,5 +53,14 @@ describe("UserView", () => {
     });
     //assert
     expect(userRatingRangeCtrl().vm.rating).toBe(wrapper.vm.rating);
+  });
+
+  it("passes an object to movie list component", () => {
+    // arrange
+    state.movies = moviesFixture;
+    const { userMovieList } = build();
+
+    // assert
+    expect(userMovieList().vm.user).toBe(state.movies);
   });
 });
