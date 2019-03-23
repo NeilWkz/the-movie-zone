@@ -67,15 +67,16 @@ describe("UserView", () => {
     // assert
     expect(userMovieList().vm.movies).toBe(state.movies);
   });
-  
-  it('Gets the movies from the api for the movie list component', () => {
+
+  it("Gets the movies from the api for the movie list component", () => {
     //arrange
     state.movies = moviesFixture;
     const { userMovieList } = build();
 
     //assert
     expect(actions.GET_MOVIES).toHaveBeenCalled();
-    expect(actions.GET_MOVIES.mock.calls[0][0].state.movies).toEqual(state.movies);
-
-})
+    expect(actions.GET_MOVIES.mock.calls[0][0].state.movies).toEqual(
+      state.movies
+    );
+  });
 });

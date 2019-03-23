@@ -17,12 +17,15 @@ export default {
     return {
       rating: { initial: "3" }
     };
+  },
+  mounted() {
+    this.$store.dispatch("GET_MOVIES");
   }
 };
 </script>
 <template>
   <div>
     <VRatingRangeCtrl :rating="rating"/>
-     <VMovieList :movies="movies"/>
+    <VMovieList :movies="movies"/>
   </div>
 </template>
