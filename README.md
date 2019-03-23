@@ -4,10 +4,7 @@
 An App for displaying "Now Showing Movies", build with Vue, Vuex.
 
 With Help from Vue-cli, Bootstrap.
-## Run Test Watcher
-```
-npm run test:unit:watch
-```
+
 
 ## Project setup
 ```
@@ -27,6 +24,10 @@ npm run build
 ### Run your tests
 ```
 npm run test
+```
+## Run Test Watcher
+```
+npm run test:unit:watch
 ```
 
 ### Lints and fixes files
