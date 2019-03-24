@@ -23,8 +23,9 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("GET_MOVIES");
-    this.$store.dispatch("GET_GENRES");
+    // this.$store.dispatch("GET_MOVIES");
+    // this.$store.dispatch("GET_GENRES");
+    this.$store.dispatch("GET_ALL_DATA");
   }
 };
 </script>

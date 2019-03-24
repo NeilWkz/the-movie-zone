@@ -1,7 +1,9 @@
 @import "bootstrap/bootstrap.scss";
 
 $offwhite: #ecf0f1;
-
+@mixin vertical-padding() {
+  padding: 2em 0;
+}
 body {
   margin: 0;
   background: #0f2027; /* fallback for old browsers */
@@ -67,8 +69,9 @@ h6 {
     color: #fff;
   }
 }
+
 .filter-checkboxes {
-  padding: 1em 0;
+ @include vertical-padding();
   form {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -87,6 +90,7 @@ h6 {
   }
 }
 .movie-list {
+  @include vertical-padding();
   width: 100%;
   display: grid;
 
@@ -103,9 +107,9 @@ h6 {
     grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
     grid-column-gap: 2.5rem;
   }
-  @include media-breakpoint-up(xl) {
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  }
+  // @include media-breakpoint-up(xl) {
+  //   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  // }
 
   img {
     max-width: 100%;
