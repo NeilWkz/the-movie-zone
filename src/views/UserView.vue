@@ -30,7 +30,9 @@ export default {
 <template>
   <div>
     <hero/>
-    <VRatingRangeCtrl :rating="rating"/>
+    <div class="container">
+      <VRatingRangeCtrl :rating="rating"/>
+    </div>
     <div class="container-fluid">
       <VMovieList :movies="movies"/>
     </div>
