@@ -18,6 +18,11 @@ I'm going hit the API to get Movies and Genres and then dedupe the Genres.
 ```
 npm install
 ```
+## Add your API KEY
+create an env.local file containing
+```
+VUE_APP_API_KEY=<<YOUR_API_KEY_HERE>>
+```
 
 ### Compiles and hot-reloads for development
 ```
