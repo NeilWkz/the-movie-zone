@@ -1,4 +1,6 @@
 <script>
+import VMovieListItem from '@/components/VMovieListItem';
+
 export default {
   name: "MovieList",
   props: {
@@ -6,9 +8,14 @@ export default {
       type: Object,
       required: true
     }
+  },
+  components: {
+    VMovieListItem
   }
 };
 </script>
 <template>
-  <div>Movie List</div>
+  <div>Movie List
+  <VMovieListItem v-for="(movie) in movies" :movie="movie" :key="movie.id" />
+  </div>
 </template>
