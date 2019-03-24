@@ -1,5 +1,6 @@
 <script>
-import VMovieListItem from '@/components/VMovieListItem';
+import VMovieListItem from "@/components/VMovieListItem";
+import _ from "lodash";
 
 export default {
   name: "MovieList",
@@ -11,11 +12,19 @@ export default {
   },
   components: {
     VMovieListItem
+  },
+  computed: {
+    orderedMovies: function() {
+      let ordered = this.movies;
+      ordered = _.orderBy(ordered, ["popularity"], ["desc"]);
+      return ordered;
+    }
   }
 };
 </script>
 <template>
-  <div>Movie List
-  <VMovieListItem v-for="(movie) in movies" :movie="movie" :key="movie.id" />
+  <div>
+    Movie List
+    <VMovieListItem v-for="(movie) in orderedMovies" :movie="movie" :key="movie.id"/>
   </div>
 </template>
