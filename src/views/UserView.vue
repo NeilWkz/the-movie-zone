@@ -31,16 +31,16 @@ export default {
 <template>
   <div>
     <hero/>
-    <div class="container">
+    <div class="container" aria-controls="movieList">
       <div class="filter-checkboxes">
-        <form id="genre-filters" aria-label="Genre Filters" aria-controls="movieList">
+        <form id="genre-filters" aria-label="Genre Filters" >
           <div
             v-for="(genre,index) in genres"
             :key="index"
             class="form-check form-check-inline"
            
           >
-            <input aria-label="Filter by dollar amount range"
+            <input :aria-label="'Filter by '+genre.name"
               class="form-check-input"
               type="checkbox"
               v-model="genre.checked"
