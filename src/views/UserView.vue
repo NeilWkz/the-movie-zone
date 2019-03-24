@@ -16,7 +16,7 @@ export default {
     ...mapState({
       movies: "movies",
       genres: "genres",
-      
+
       selectedFilters: function(state) {
         let filters = [];
         let filterGenres = _.values(this.genres);
@@ -27,35 +27,41 @@ export default {
         return filters;
       }
     }),
-    moviesArr (state) {
-        return _.values(state.movies);
-      },
+    moviesArr(state) {
+      return _.values(state.movies);
+    }
   },
   methods: {
     getfilteredMovies: function() {
       this.filteredMovies = this.moviesArr;
 
       let filteredMoviesByfilters = [];
+      let filteredMoviesByRating = [];
       // if filters where selected
       if (this.selectedFilters.length > 0) {
         filteredMoviesByfilters = this.filteredMovies.filter(obj =>
           //compare every filter in the object to genre_ids
           this.selectedFilters.every(val => obj.genre_ids.indexOf(val) >= 0)
-        )
-        	//  if the range slder is selected then filter according to popularity
-			if (this.search !== '') {
-				filteredDataBySearch = this.filteredData.filter(obj => obj.name.indexOf(this.search.toLowerCase()) >= 0);
-				this.filteredData = filteredDataBySearch;
-			}
+        );
+        //  if the range slder is selected then filter according to popularity
+        console.log(this.rating);
         console.log(filteredMoviesByfilters);
         this.filteredMovies = filteredMoviesByfilters;
+      }
+      if (this.rating > 0) {
+        console.log(this.rating);
+        filteredMoviesByRating = this.filteredMovies.filter(val => {
+          return val.vote_average > this.rating;
+        });
+        console.log(filteredMoviesByRating);
+        this.filteredMovies = filteredMoviesByRating;
       }
     }
   },
   data() {
     return {
       filteredMovies: [],
-      rating: { initial: "3" }
+      rating: 0
     };
   },
   mounted() {
@@ -86,7 +92,14 @@ export default {
           </div>
         </form>
       </div>
-      <VRatingRangeCtrl :rating="rating"/>
+      <vue-slider
+        v-model="rating"
+        :min="0"
+        :max="10"
+        :lazy="true"
+        :interval="0.5"
+        @drag-end="getfilteredMovies"
+      ></vue-slider>
     </div>
     <div v-if="filteredMovies" class="container-fluid" id="movieList" aria-live="polite">
       <VMovieList :movies="this.filteredMovies"/>
