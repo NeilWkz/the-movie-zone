@@ -2,7 +2,6 @@
 
 $offwhite: #ecf0f1;
 
-
 body {
   margin: 0;
   background: #0f2027; /* fallback for old browsers */
@@ -29,7 +28,6 @@ h5,
 h6 {
   font-weight: 700;
 }
-
 
 .hero {
   display: flex;
@@ -70,30 +68,43 @@ h6 {
   }
 }
 .filter-checkboxes {
+  padding: 1em 0;
   form {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.75rem;
+
+    @include media-breakpoint-up(sm) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include media-breakpoint-up(md) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
   }
 }
 .movie-list {
   width: 100%;
   display: grid;
- 
+
   grid-column-gap: 5vw;
   grid-row-gap: 1.5rem;
-// we're going to kick into 2 columns at when we get to phablets
+  // we're going to kick into 2 columns when we get to phablets
   @media (min-width: 413px) {
-       grid-template-columns: 1fr 1fr;
-    }
+    grid-template-columns: 1fr 1fr;
+  }
   @include media-breakpoint-up(md) {
     grid-template-columns: 1fr 1fr 1fr;
   }
   @include media-breakpoint-up(lg) {
-  grid-template-columns: repeat( auto-fit, minmax(262px, 1fr) );
-  grid-column-gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+    grid-column-gap: 2.5rem;
   }
   @include media-breakpoint-up(xl) {
-  grid-template-columns: repeat( auto-fit, minmax(340px, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   }
 
   img {

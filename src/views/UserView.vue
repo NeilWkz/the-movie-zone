@@ -33,14 +33,14 @@ export default {
     <hero/>
     <div class="container">
       <div class="filter-checkboxes">
-        <form>
+        <form id="genre-filters" aria-label="Genre Filters" aria-controls="movieList">
           <div
             v-for="(genre,index) in genres"
             :key="index"
             class="form-check form-check-inline"
            
           >
-            <input
+            <input aria-label="Filter by dollar amount range"
               class="form-check-input"
               type="checkbox"
               v-model="genre.checked"
@@ -52,7 +52,7 @@ export default {
       </div>
       <VRatingRangeCtrl :rating="rating"/>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" id="movieList" aria-live="polite">
       <VMovieList :movies="movies"/>
     </div>
   </div>
