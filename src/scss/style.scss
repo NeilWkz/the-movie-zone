@@ -104,12 +104,15 @@ h6 {
     grid-template-columns: 1fr 1fr 1fr;
   }
   @include media-breakpoint-up(lg) {
-    grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 2.5rem;
   }
-  // @include media-breakpoint-up(xl) {
-  //   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  // }
+  @include media-breakpoint-up(xl) {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  @media (min-width: 1600px) {
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  }
 
   img {
     max-width: 100%;

@@ -6,7 +6,7 @@ export default {
   name: "MovieList",
   props: {
     movies: {
-      type: Object,
+      type: Array,
       required: true
     }
   },

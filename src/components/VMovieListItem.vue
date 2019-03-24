@@ -32,7 +32,9 @@ export default {
       <img v-if="moviePosterSrc" :src="moviePosterSrc" alt>
 
       {{movie.title}}
-      {{movie.popularity}}
+      <ul class="genre-list">
+        <li v-for="(genre_title) in movie.genre_titles" :key="genre_title.id">{{genre_title.name}}</li>
+      </ul>
     </figure>
   </div>
 </template>
