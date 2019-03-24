@@ -5,7 +5,7 @@ export default {
 </script>
 <template>
   <div class="hero">
-    <h1>The Movie Zone</h1>
+    <img class="logo" src="/img/the-movie-zone-logo.svg" alt="">
   </div>
 </template>
 

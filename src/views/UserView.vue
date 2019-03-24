@@ -78,7 +78,7 @@ export default {
     <hero/>
     <div class="container" aria-controls="movieList">
       <div v-if="genres" class="filter-checkboxes">
-        <h3 class="text-center">Filter By Genre</h3>
+        <h3 class="text-center mb-20">Filter By Genre</h3>
         <form id="genre-filters" aria-label="Genre Filters">
           <div v-for="(genre,index) in genres" :key="index" class="form-check form-check-inline">
             <input
@@ -93,7 +93,26 @@ export default {
           </div>
         </form>
       </div>
-      <h3 class="text-center">Filter By Rating:</h3>
+      <h3 class="text-center mb-20">Filter By Rating:</h3>
+      <div class="rating-wrap d-b mb-20">
+         <div class="star-ratings">
+        <div class="star-ratings-top" style="width: 84%">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <div class="star-ratings-bottom">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+      </div>
+      </div>
+     
       <vue-slider
         v-model="rating"
         :min="0"
