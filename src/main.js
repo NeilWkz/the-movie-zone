@@ -6,7 +6,6 @@ import "./registerServiceWorker";
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 Vue.component("VueSlider", VueSlider);
-
 Vue.config.productionTip = false;
 
 new Vue({
