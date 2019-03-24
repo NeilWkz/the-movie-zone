@@ -2,11 +2,14 @@
 import { mapState } from "vuex";
 import VMovieList from "@/components/VMovieList";
 import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
+import hero from "@/components/hero";
+
 export default {
   name: "UserView",
   components: {
     VMovieList,
-    VRatingRangeCtrl
+    VRatingRangeCtrl,
+    hero
   },
   computed: {
     ...mapState({
@@ -26,6 +29,7 @@ export default {
 </script>
 <template>
   <div>
+    <hero />
     <VRatingRangeCtrl :rating="rating"/>
     <VMovieList :movies="movies"/>
   </div>
