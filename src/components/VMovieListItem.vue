@@ -5,6 +5,23 @@ export default {
     movie: {
       type: Object
     }
+  },
+  data() {
+    return {
+      moviePosterSrc: ""
+    };
+  },
+  methods: {
+    poster() {
+      if (this.movie.poster_path) {
+        this.moviePosterSrc =
+          "https://image.tmdb.org/t/p/w600_and_h900_bestv2" +
+          this.movie.poster_path;
+      }
+    }
+  },
+  created() {
+    this.poster();
   }
 };
 </script>
@@ -12,7 +29,8 @@ export default {
 <template>
   <div>
     <figure>
-        movie Item
+      <img v-if="moviePosterSrc" :src="moviePosterSrc" alt>
+
       {{movie.title}}
       {{movie.popularity}}
     </figure>
