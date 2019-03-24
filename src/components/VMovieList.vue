@@ -23,8 +23,7 @@ export default {
 };
 </script>
 <template>
-  <div>
-    Movie List
+  <div class="movie-list">
     <VMovieListItem v-for="(movie) in orderedMovies" :movie="movie" :key="movie.id"/>
   </div>
 </template>

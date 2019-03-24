@@ -29,8 +29,10 @@ export default {
 </script>
 <template>
   <div>
-    <hero />
+    <hero/>
     <VRatingRangeCtrl :rating="rating"/>
-    <VMovieList :movies="movies"/>
+    <div class="container-fluid">
+      <VMovieList :movies="movies"/>
+    </div>
   </div>
 </template>
