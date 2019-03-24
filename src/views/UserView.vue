@@ -13,7 +13,8 @@ export default {
   },
   computed: {
     ...mapState({
-      movies: "movies"
+      movies: "movies",
+      genres: "genres"
     })
   },
   data() {
@@ -31,6 +32,24 @@ export default {
   <div>
     <hero/>
     <div class="container">
+      <div class="filter-checkboxes">
+        <form>
+          <div
+            v-for="(genre,index) in genres"
+            :key="index"
+            class="form-check form-check-inline"
+           
+          >
+            <input
+              class="form-check-input"
+              type="checkbox"
+              v-model="genre.checked"
+              :id="'filter-'+index+'-check'"
+            >
+            <label class="form-check-label" :for="'filter-'+index+'-check'">{{ genre.name }}</label>
+          </div>
+        </form>
+      </div>
       <VRatingRangeCtrl :rating="rating"/>
     </div>
     <div class="container-fluid">
