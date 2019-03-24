@@ -69,6 +69,12 @@ h6 {
     color: #fff;
   }
 }
+.filter-checkboxes {
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
 .movie-list {
   width: 100%;
   display: grid;
