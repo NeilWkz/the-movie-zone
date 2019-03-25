@@ -15,7 +15,7 @@ I'm going hit the API to get Movies and Genres and then dedupe the Genres.
 
 ### Retrospective Mea Culpa
 
-The requirements are fullfilled, but at that velocity TDD went out of the window the around 10 hours mark. I like to say that all success is ultimately a by-product of a greater failure. The I refactored around hour 16 which made a lot of my original tests fail, and I did not have the time to rewrite them in line with the refactor. The UX is missing some basic requirements e.g: loading indicators, filter transitions, a better filtering layout for mobile and a fine style pass to make it a bit less ugly.
+The requirements are fullfilled, but at that velocity TDD went out of the window around the 10 hours mark. I like to say that all success is ultimately a by-product of a greater failure, but this is my failure as I was overambitious within the time I had available. I refactored around hour 16 which made a lot of my original tests fail, and I did not have the time to rewrite them in line with the refactor. The UX is missing some basic requirements e.g: loading indicators, filter transitions, a better filtering layout for mobile and a fine style pass to make it a bit less ugly.
 
 ## Project setup
 ```
