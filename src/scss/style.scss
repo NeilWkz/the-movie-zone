@@ -1,6 +1,9 @@
 @import "bootstrap/bootstrap.scss";
 
 $offwhite: #ecf0f1;
+$gold: #febb62;
+$hotpink: #f61bb5;
+$midnight: #2c3e50;
 @mixin vertical-padding() {
   padding: 2em 0;
 }
@@ -71,29 +74,30 @@ h6 {
 }
 
 .filter-checkboxes {
- @include vertical-padding();
-  form {
+  @include vertical-padding();
+  form ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.75rem;
 
     @include media-breakpoint-up(sm) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     @include media-breakpoint-up(md) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
     @include media-breakpoint-up(xl) {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 }
 .movie-list {
   @include vertical-padding();
   width: 100%;
-  display: grid;
+  color: $midnight;
 
+  display: grid;
   grid-column-gap: 5vw;
   grid-row-gap: 1.5rem;
   // we're going to kick into 2 columns when we get to phablets
@@ -108,7 +112,7 @@ h6 {
     grid-column-gap: 2.5rem;
   }
   @include media-breakpoint-up(xl) {
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
   @media (min-width: 1600px) {
     grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
@@ -118,15 +122,53 @@ h6 {
     max-width: 100%;
     height: auto;
   }
+  .card {
+    .figure {
+      margin: 0;
+    }
+    .card-body {
+      padding-bottom: 0;
+    }
+    .genre-list {
+      padding: 1rem 0 0;
+      list-style: none;
+      width: 100%;
+      display: inline-grid;
+      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+      grid-template-rows: auto;
+      grid-row-gap:0.5rem;
+      align-items:stretch;
+      justify-items: stretch;
+   
+      li {
+        margin: 0 0.1rem;
+        align-self:stretch;
+
+      }
+      .badge-midnight {
+        background-color: $midnight;
+        color: $offwhite;
+        padding: 0.25rem;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 0;
+        height: 100%;
+
+
+      }
+    }
+  }
 }
 
 .logo {
- 
-  width: 400px; 
- 
-
+  width: 400px;
 }
-
+.rating-wrap {
+  display: block;
+  padding: 0 0 1rem 0;
+}
 // All credit to Zach Reed - @Bluetidepro
 .star-ratings {
   unicode-bidi: bidi-override;
@@ -138,9 +180,9 @@ h6 {
   position: relative;
   padding: 0;
   text-shadow: 0px 1px 0 #a2a2a2;
-  
+
   &-top {
-    color: #e7711b;
+    color: $gold;
     padding: 0;
     position: absolute;
     z-index: 1;
@@ -154,4 +196,55 @@ h6 {
     display: block;
     z-index: 0;
   }
+}
+
+.form-check-switch {
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  position: relative;
+  .form-check-input {
+    display: none;
+    &:checked + .form-check-label:after {
+      left: 50%;
+    }
+  }
+  .form-check-label {
+    border-radius: 12px;
+    position: absolute;
+    white-space: nowrap;
+    font-size: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+    transition: all 0.3s ease;
+    &:after {
+      background: #fff;
+      border-radius: 50%;
+      content: "";
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.form-check-gold {
+  .form-check-input {
+    &:checked + .form-check-label {
+      background: $gold;
+    }
+  }
+}
+
+.jumbotron {
+  margin-top: 3rem;
+  color: $midnight;
 }

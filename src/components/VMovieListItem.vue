@@ -27,14 +27,16 @@ export default {
 </script>
 
 <template>
-  <div>
-    <figure>
+  <div class="card">
+    <figure >
       <img v-if="moviePosterSrc" :src="moviePosterSrc" alt>
+      <div class="card-body">
+      <h5 class="card-title text-center">{{movie.title}}</h5>
 
-      {{movie.title}}
       <ul class="genre-list">
-        <li v-for="(genre_title) in movie.genre_titles" :key="genre_title.id">{{genre_title.name}}</li>
+        <li v-for="(genre_title) in movie.genre_titles" :key="genre_title.id"><h6 class="badge badge-midnight">{{genre_title.name}}</h6></li>
       </ul>
+      </div>
     </figure>
   </div>
 </template>

@@ -61,7 +61,18 @@ export default {
   data() {
     return {
       filteredMovies: [],
-      rating: 0
+      rating: 0,
+      directors: [
+        "Alejandro Jodorowsky",
+        "Emir Kusturica",
+        "Kenneth Anger",
+        "Maya Deren",
+        "John Waters",
+        "Birgit Hein",
+        "The Kuchar brothers",
+        "Sarah Jacobson",
+        "Melvin Van Peebles"
+      ]
     };
   },
   mounted() {
@@ -80,50 +91,82 @@ export default {
       <div v-if="genres" class="filter-checkboxes">
         <h3 class="text-center mb-20">Filter By Genre</h3>
         <form id="genre-filters" aria-label="Genre Filters">
-          <div v-for="(genre,index) in genres" :key="index" class="form-check form-check-inline">
-            <input
-              :aria-label="'Filter by '+genre.name"
-              class="form-check-input"
-              type="checkbox"
-              v-model="genre.checked"
-              :id="'filter-'+index+'-check'"
-              v-on:change="getfilteredMovies"
+          <ul>
+            <li
+              v-for="(genre,index) in genres"
+              :key="index"
+              class="list-group-item d-flex align-items-center"
             >
-            <label class="form-check-label" :for="'filter-'+index+'-check'">{{ genre.name }}</label>
-          </div>
+              <div class="form-check form-check-inline form-check-switch form-check-gold">
+                <input
+                  :aria-label="'Filter by '+genre.name"
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="genre.checked"
+                  :id="'filter-'+index+'-check'"
+                  v-on:change="getfilteredMovies"
+                >
+                <label class="form-check-label" :for="'filter-'+index+'-check'">{{ genre.name }}</label>
+              </div>
+              {{ genre.name }}
+            </li>
+          </ul>
         </form>
       </div>
-      <h3 class="text-center mb-20">Filter By Rating:</h3>
-      <div class="rating-wrap d-b mb-20">
-         <div class="star-ratings">
-        <div class="star-ratings-top" style="width: 84%">
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-        </div>
-        <div class="star-ratings-bottom">
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <h3 class="text-center mb-1">Filter By Rating:</h3>
+          <div class="rating-wrap">
+            <div class="star-ratings">
+              <div class="star-ratings-top" :style="'width:'+rating*10+'%'">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
+              <div class="star-ratings-bottom">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
+            </div>
+          </div>
+
+          <vue-slider
+            v-model="rating"
+            :min="0"
+            :max="10"
+            :lazy="true"
+            :interval="0.5"
+            @drag-end="getfilteredMovies"
+          ></vue-slider>
         </div>
       </div>
-      </div>
-     
-      <vue-slider
-        v-model="rating"
-        :min="0"
-        :max="10"
-        :lazy="true"
-        :interval="0.5"
-        @drag-end="getfilteredMovies"
-      ></vue-slider>
     </div>
-    <div v-if="filteredMovies" class="container-fluid" id="movieList" aria-live="polite">
+    <div
+      v-if="filteredMovies && filteredMovies.length > 0"
+      class="container-fluid"
+      id="movieList"
+      aria-live="polite"
+    >
       <VMovieList :movies="this.filteredMovies"/>
+    </div>
+    <div class="container" v-else>
+      <div class="row justify-content-center">
+        <div class="col-10  mt-35">
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+              <h1 class="display-4">Sorry no movies in cinemas match your exacting Standards...😊</h1>
+              <p
+                class="lead"
+              >Have you thought about getting into {{directors[Math.floor(Math.random() * directors.length)]}}?</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

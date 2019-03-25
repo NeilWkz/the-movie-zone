@@ -10,7 +10,7 @@
 @import "mixins";
 @import "root";
 @import "reboot";
-// @import "type";
+@import "type";
 @import "images";
 // @import "code";
  @import "grid";
@@ -24,11 +24,11 @@
 // @import "custom-forms";
 // @import "nav";
 // @import "navbar";
-// @import "card";
+@import "card";
 // @import "breadcrumb";
 // @import "pagination";
 // @import "badge";
-// @import "jumbotron";
+@import "jumbotron";
 // @import "alert";
 // @import "progress";
 // @import "media";
