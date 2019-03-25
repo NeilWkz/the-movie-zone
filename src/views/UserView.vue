@@ -46,16 +46,12 @@ export default {
           this.selectedFilters.every(val => obj.genre_ids.indexOf(val) >= 0)
         );
         //  if the range slder is selected then filter according to popularity
-        console.log(this.rating);
-        console.log(filteredMoviesByfilters);
         this.filteredMovies = filteredMoviesByfilters;
       }
       if (this.rating > 0) {
-        console.log(this.rating);
         filteredMoviesByRating = this.filteredMovies.filter(val => {
           return val.vote_average > this.rating;
         });
-        console.log(filteredMoviesByRating);
         this.filteredMovies = filteredMoviesByRating;
       }
     }
@@ -142,7 +138,8 @@ export default {
             :max="10"
             :lazy="true"
             :interval="0.5"
-            @drag-end="getfilteredMovies"
+
+            @change="getfilteredMovies"
           ></vue-slider>
         </div>
       </div>

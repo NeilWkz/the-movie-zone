@@ -48,18 +48,16 @@ describe("UserView", () => {
   //   expect(userMovieList().exists()).toBe(true);
   // });
 
-  // it("passes an object to movie list component", () => {
-  //   // arrange
-  //   state.movies = moviesFixture;
-  //   const { userMovieList } = build();
-
-  //   // assert
-  //   expect(userMovieList().vm.movies).toBe(state.movies);
-  // });
+  it("passes an array to movie list component", () => {
+    // arrange
+    state.movies = moviesFixture;
+    const { userMovieList } = build();
+    // assert
+    expect(userMovieList().vm.movies).toBe(state.movies);
+  });
 
   it("Runs the GET_ALL_ DATA action to trigger the api calls", () => {
     //arrange
-    state.movies = moviesFixture;
     const { wrapper } = build();
 
     //assert

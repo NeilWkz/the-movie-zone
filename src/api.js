@@ -25,5 +25,7 @@ export default {
       }
     })
       .then(genres => genres.data.genres);
+      
+     
   },
 };
