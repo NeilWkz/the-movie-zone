@@ -3,6 +3,7 @@ import { mapState } from "vuex";
 import VMovieList from "@/components/VMovieList";
 import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import hero from "@/components/hero";
+import VueSlider from "vue-slider-component";
 import _ from "lodash";
 
 export default {
@@ -10,6 +11,7 @@ export default {
   components: {
     VMovieList,
     VRatingRangeCtrl,
+    VueSlider,
     hero
   },
   computed: {
@@ -76,8 +78,7 @@ export default {
     };
   },
   mounted() {
-    // this.$store.dispatch("GET_MOVIES");
-    // this.$store.dispatch("GET_GENRES");
+    
     this.$store.dispatch("GET_ALL_DATA").then(() => {
       this.getfilteredMovies();
     });
@@ -162,7 +163,7 @@ export default {
               <h1 class="display-4">Sorry no movies in cinemas match your exacting Standards...😊</h1>
               <p
                 class="lead"
-              >Have you thought about getting into {{directors[Math.floor(Math.random() * directors.length)]}}?</p>
+              >Have you thought about getting into <span class="random-director" >{{directors[Math.floor(Math.random() * directors.length)]}}</span>?</p>
             </div>
           </div>
         </div>

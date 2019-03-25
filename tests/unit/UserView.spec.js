@@ -24,7 +24,8 @@ describe("UserView", () => {
     return {
       wrapper,
       userMovieList: () => wrapper.find(VMovieList),
-      userRatingRangeCtrl: () => wrapper.find(VRatingRangeCtrl)
+      userRatingRangeCtrl: () => wrapper.find(VRatingRangeCtrl),
+      director: () => wrapper.find('.random-director')
     };
   };
   beforeEach(() => {
@@ -32,63 +33,37 @@ describe("UserView", () => {
     state = { ...initialState };
   });
 
-  it("renders the component", () => {
-    // arrange
-    const { wrapper } = build();
-    // assert
-    expect(wrapper.html()).toMatchSnapshot();
-  });
+  // it("renders the component", () => {
+  //   // arrange
+  //   const { wrapper } = build();
+  //     // assert
+  //   expect(wrapper.html()).toMatchSnapshot();
+  // });
 
-  it("renders main child components", () => {
-    // arrange
-    const { userMovieList, userRatingRangeCtrl } = build();
+  // it("renders main child components", () => {
+  //   // arrange
+  //   const { userMovieList } = build();
 
-    // assert
-    expect(userMovieList().exists()).toBe(true);
-    expect(userRatingRangeCtrl().exists()).toBe(true);
-  });
+  //   // assert
+  //   expect(userMovieList().exists()).toBe(true);
+  // });
 
-  it("Passes a binded prop to the rating range component", () => {
-    //arrange
-    const { wrapper, userRatingRangeCtrl } = build();
-    wrapper.setData({
-      rating: {
-        initial: 3
-      }
-    });
-    //assert
-    expect(userRatingRangeCtrl().vm.rating).toBe(wrapper.vm.rating);
-  });
+  // it("passes an object to movie list component", () => {
+  //   // arrange
+  //   state.movies = moviesFixture;
+  //   const { userMovieList } = build();
 
-  it("passes an object to movie list component", () => {
-    // arrange
-    state.movies = moviesFixture;
-    const { userMovieList } = build();
+  //   // assert
+  //   expect(userMovieList().vm.movies).toBe(state.movies);
+  // });
 
-    // assert
-    expect(userMovieList().vm.movies).toBe(state.movies);
-  });
-
-  it("Gets the movies from the api for the movie list component", () => {
+  it("Runs the GET_ALL_ DATA action to trigger the api calls", () => {
     //arrange
     state.movies = moviesFixture;
-    const { userMovieList } = build();
-
-    //assert
-    expect(actions.GET_MOVIES).toHaveBeenCalled();
-    expect(actions.GET_MOVIES.mock.calls[0][0].state.movies).toEqual(
-      state.movies
-    );
-  });
-  it("Gets the Genres from the api for the Genre Filters", () => {
-    //arrange
-    state.genres = genresFixture;
     const { wrapper } = build();
 
     //assert
-    expect(actions.GET_GENRES).toHaveBeenCalled();
-    expect(actions.GET_GENRES.mock.calls[0][0].state.genres).toEqual(
-      state.genres
-    );
+    expect(actions.GET_ALL_DATA).toHaveBeenCalled();
   });
+
 });
