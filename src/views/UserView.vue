@@ -34,10 +34,10 @@ export default {
         switch (state.loadStatus) {
           case 1:
           case 2:
-            return true;
+            return false;
             break;
           case 3:
-            return false;
+            return true;
             break;
         }
       }
@@ -180,7 +180,7 @@ export default {
 </div>
     
     <div
-      v-if="filteredMovies && filteredMovies.length > 0 && !this.loading"
+      v-if="filteredMovies && filteredMovies.length > 0"
       class="container-fluid"
       id="movieList"
       aria-live="polite"
