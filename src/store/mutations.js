@@ -4,5 +4,8 @@ export default {
   },
   SET_GENRES(state, genres) {
     state.genres = { ...genres };
+  },
+  SET_LOAD_STATUS(state, status) {
+    state.loadStatus = status ;
   }
 };

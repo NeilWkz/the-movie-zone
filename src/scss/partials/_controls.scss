@@ -1,0 +1,111 @@
+#nav-icon {
+  //the icon is drawn with 4 spans it transforms into an X when opened
+  width: 25px;
+  height: 20px;
+
+  margin: 3px 18px;
+  // animate the icon
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  position: fixed;
+  top: 1.15rem;
+  left: 0;
+  z-index: 999;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: $gold;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    will-change: transform;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    &:nth-child(1) {
+      top: 0px;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 7px;
+    }
+
+    &:nth-child(4) {
+      top: 14px;
+    }
+  }
+}
+.opened {
+  #nav-icon {
+    left: 85vw;
+
+    span {
+      &:nth-child(1) {
+        top: 7px;
+        width: 0%;
+        left: 50%;
+      }
+      &:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+      &:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+      &:nth-child(4) {
+        top: 14px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+  .controls {
+    width: auto;
+    .drawer-on-mobile {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+.controls {
+  transition: all 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  touch-action: manipulation;
+  overflow: visible;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 0;
+  .drawer-on-mobile {
+    padding: 0 1em 1em;
+    -webkit-transform: translate3d(-105%, 0, 0);
+    -ms-transform: translate3d(-105%, 0, 0);
+    transform: translate3d(-105%, 0, 0);
+    transform: translate3d(-105%, 0, 0);
+    transition: transform 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    margin: 0;
+    will-change: transform;
+    list-style: none;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 85vw;
+    -webkit-box-shadow: 11px 10px 5px -8px rgba(35, 35, 35, 0.3);
+    -moz-box-shadow: 11px 10px 5px -8px rgba(35, 35, 35, 0.3);
+    box-shadow: 11px 10px 5px -8px rgba(35, 35, 35, 0.3);
+    padding: 1rem 1.5rem;
+    top: 0;
+    background: $midnight;
+  }
+  h4 {
+    margin-bottom: 1em;
+  }
+}

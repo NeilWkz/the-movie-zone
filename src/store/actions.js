@@ -5,9 +5,11 @@ export default {
     return new Promise(async (resolve, reject) => {
       try {
         const movies = await api.getMovies();
+        commit('SET_LOAD_STATUS', 2);
         return resolve(movies);
       } catch (error) {
         reject(error);
+        commit('SET_LOAD_STATUS', 3);
       }
     });
   },
@@ -18,6 +20,7 @@ export default {
         return resolve(genres);
       } catch (error) {
         reject(error);
+        commit('SET_LOAD_STATUS', 3);
       }
     });
   },
@@ -28,7 +31,9 @@ export default {
     // Call and then wait for `GET_MOVIES` & GET_GENRES to finish
     let movies = await dispatch("GET_MOVIES");
     let genres = await dispatch("GET_GENRES");
-    
+
+    commit("SET_LOAD_STATUS", 1);
+   
     let movieGenreIds = [];
     let deduped;
 

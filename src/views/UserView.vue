@@ -54,12 +54,16 @@ export default {
         });
         this.filteredMovies = filteredMoviesByRating;
       }
+    },
+    triggerInput(target) {
+      document.getElementById(target).click();
     }
   },
   data() {
     return {
       filteredMovies: [],
       rating: 0,
+      menuVisible: false,
       directors: [
         "Alejandro Jodorowsky",
         "Emir Kusturica",
@@ -74,7 +78,6 @@ export default {
     };
   },
   mounted() {
-    
     this.$store.dispatch("GET_ALL_DATA").then(() => {
       this.getfilteredMovies();
     });
@@ -84,66 +87,81 @@ export default {
 <template>
   <div>
     <hero/>
-    <div class="container" aria-controls="movieList">
-      <div v-if="genres" class="filter-checkboxes">
-        <h3 class="text-center mb-20">Filter By Genre</h3>
-        <form id="genre-filters" aria-label="Genre Filters">
-          <ul>
-            <li
-              v-for="(genre,index) in genres"
-              :key="index"
-              class="list-group-item d-flex align-items-center"
-            >
-              <div class="form-check form-check-inline form-check-switch form-check-gold">
-                <input
-                  :aria-label="'Filter by '+genre.name"
-                  class="form-check-input"
-                  type="checkbox"
-                  v-model="genre.checked"
-                  :id="'filter-'+index+'-check'"
-                  v-on:change="getfilteredMovies"
-                >
-                <label class="form-check-label" :for="'filter-'+index+'-check'">{{ genre.name }}</label>
-              </div>
-              {{ genre.name }}
-            </li>
-          </ul>
-        </form>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-sm-6">
-          <h3 class="text-center mb-1">Filter By Rating:</h3>
-          <div class="rating-wrap">
-            <div class="star-ratings">
-              <div class="star-ratings-top" :style="'width:'+rating*10+'%'">
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-              </div>
-              <div class="star-ratings-bottom">
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
+    <div class="wrap-controls" v-bind:class="{ opened: menuVisible }">
+
+   
+    <div id="nav-icon" role="button" aria-haspopup="true" @click="menuVisible = !menuVisible">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="controls" aria-controls="movieList">
+      <div class="drawer-on-mobile">
+        <div v-if="genres" class="filter-checkboxes">
+          <h4 class="text-center">Filter By Genre</h4>
+          <form id="genre-filters" aria-label="Genre Filters">
+            <ul>
+              <li
+                v-for="(genre,index) in genres"
+                :key="index"
+                class="list-group-item d-flex align-items-center"
+              >
+                <div class="form-check form-check-inline form-check-switch form-check-gold">
+                  <input
+                    :aria-label="'Filter by '+genre.name"
+                    class="form-check-input"
+                    type="checkbox"
+                    v-model="genre.checked"
+                    :id="'filter-'+index+'-check'"
+                    v-on:change="getfilteredMovies"
+                  >
+                  <label class="form-check-label" :for="'filter-'+index+'-check'">{{ genre.name }}</label>
+                </div>
+                <span
+                  @click="triggerInput('filter-'+index+'-check')"
+                  aria-hidden="true"
+                >{{ genre.name }}</span>
+              </li>
+            </ul>
+          </form>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-sm-6">
+            <h4 class="text-center">Filter By Rating:</h4>
+            <div class="rating-wrap">
+              <div class="star-ratings">
+                <div class="star-ratings-top" :style="'width:'+rating*10+'%'">
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                </div>
+                <div class="star-ratings-bottom">
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                </div>
               </div>
             </div>
+
+            <vue-slider
+              v-model="rating"
+              :min="0"
+              :max="10"
+              :lazy="true"
+              :interval="0.5"
+              @change="getfilteredMovies"
+            ></vue-slider>
           </div>
-
-          <vue-slider
-            v-model="rating"
-            :min="0"
-            :max="10"
-            :lazy="true"
-            :interval="0.5"
-
-            @change="getfilteredMovies"
-          ></vue-slider>
         </div>
       </div>
     </div>
+     </div>
     <div
       v-if="filteredMovies && filteredMovies.length > 0"
       class="container-fluid"
@@ -154,13 +172,16 @@ export default {
     </div>
     <div class="container" v-else>
       <div class="row justify-content-center">
-        <div class="col-10  mt-35">
+        <div class="col-10 mt-35">
           <div class="jumbotron jumbotron-fluid">
             <div class="container text-center">
               <h1 class="display-4">Sorry no movies in cinemas match your exacting Standards...😊</h1>
-              <p
-                class="lead"
-              >Have you thought about getting into <span class="random-director" >{{directors[Math.floor(Math.random() * directors.length)]}}</span>?</p>
+              <p class="lead">
+                Have you thought about getting into
+                <span
+                  class="random-director"
+                >{{directors[Math.floor(Math.random() * directors.length)]}}</span>?
+              </p>
             </div>
           </div>
         </div>

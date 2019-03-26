@@ -1,5 +1,6 @@
 export default {
   rating: {},
   movies: {},
-  genres: {}
+  genres: {},
+  loadStatus: 0,
 };

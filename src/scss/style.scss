@@ -7,6 +7,9 @@ $midnight: #2c3e50;
 @mixin vertical-padding() {
   padding: 2em 0;
 }
+
+
+@import "partials/_controls";
 body {
   margin: 0;
   background: #0f2027; /* fallback for old browsers */
@@ -80,6 +83,7 @@ h6 {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.75rem;
+    padding-left: 0;
 
     @include media-breakpoint-up(sm) {
       grid-template-columns: 1fr 1fr;
@@ -133,30 +137,24 @@ h6 {
       padding: 1rem 0 0;
       list-style: none;
       width: 100%;
-      display: inline-grid;
-      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-      grid-template-rows: auto;
-      grid-row-gap:0.5rem;
-      align-items:stretch;
-      justify-items: stretch;
-   
-      li {
-        margin: 0 0.1rem;
-        align-self:stretch;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
 
+      li {
+        margin: 0 0.1rem 0.7rem;
+        align-self: stretch;
       }
       .badge-midnight {
         background-color: $midnight;
         color: $offwhite;
-        padding: 0.25rem;
+        padding: 0.25rem 0.75rem;
         display: flex;
         text-align: center;
         align-items: center;
         justify-content: space-around;
         margin-bottom: 0;
         height: 100%;
-
-
       }
     }
   }
@@ -176,7 +174,10 @@ h6 {
   font-size: 25px;
   height: 25px;
   width: 100px;
-  margin: 0 auto;
+  @include media-breakpoint-up(sm) {
+    width: 125px;
+  }
+  margin: -15px auto 0;
   position: relative;
   padding: 0;
   text-shadow: 0px 1px 0 #a2a2a2;
@@ -247,4 +248,6 @@ h6 {
 .jumbotron {
   margin-top: 3rem;
   color: $midnight;
+  background: darken($gold, 15%);
 }
+
