@@ -87,7 +87,7 @@ export default {
 <template>
   <div>
     <hero/>
-    <div class="wrap-controls" v-bind:class="{ opened: menuVisible }">
+    <div class="wrap-controls" v-bind:class="[{ opened: menuVisible }, 'container']">
 
    
     <div id="nav-icon" role="button" aria-haspopup="true" @click="menuVisible = !menuVisible">
@@ -97,7 +97,7 @@ export default {
       <span></span>
     </div>
     <div class="controls" aria-controls="movieList">
-      <div class="drawer-on-mobile">
+      <div class="drawer-on-mobile container">
         <div v-if="genres" class="filter-checkboxes">
           <h4 class="text-center">Filter By Genre</h4>
           <form id="genre-filters" aria-label="Genre Filters">
@@ -175,7 +175,7 @@ export default {
         <div class="col-10 mt-35">
           <div class="jumbotron jumbotron-fluid">
             <div class="container text-center">
-              <h1 class="display-4">Sorry no movies in cinemas match your exacting Standards...😊</h1>
+              <h3>Sorry no movies in cinemas match your exacting Standards...😊</h3>
               <p class="lead">
                 Have you thought about getting into
                 <span
