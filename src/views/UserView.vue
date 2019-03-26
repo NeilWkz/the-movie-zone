@@ -18,6 +18,7 @@ export default {
     ...mapState({
       movies: "movies",
       genres: "genres",
+      loadStatus: "loadStatus",
 
       selectedFilters: function(state) {
         let filters = [];
@@ -27,6 +28,18 @@ export default {
           filters.push(element.id);
         });
         return filters;
+      },
+
+      loading: function(state) {
+        switch (state.loadStatus) {
+          case 1:
+          case 2:
+            return true;
+            break;
+          case 3:
+            return false;
+            break;
+        }
       }
     }),
     moviesArr(state) {
@@ -88,82 +101,86 @@ export default {
   <div>
     <hero/>
     <div class="wrap-controls" v-bind:class="[{ opened: menuVisible }, 'container']">
+      <div id="nav-icon" role="button" aria-haspopup="true" @click="menuVisible = !menuVisible">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="controls" aria-controls="movieList">
+        <div class="drawer-on-mobile container">
+          <div v-if="genres" class="filter-checkboxes">
+            <h4 class="text-center">Filter By Genre</h4>
+            <form id="genre-filters" aria-label="Genre Filters">
+              <ul>
+                <li
+                  v-for="(genre,index) in genres"
+                  :key="index"
+                  class="list-group-item d-flex align-items-center"
+                >
+                  <div class="form-check form-check-inline form-check-switch form-check-gold">
+                    <input
+                      :aria-label="'Filter by '+genre.name"
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="genre.checked"
+                      :id="'filter-'+index+'-check'"
+                      v-on:change="getfilteredMovies"
+                    >
+                    <label class="form-check-label" :for="'filter-'+index+'-check'">{{ genre.name }}</label>
+                  </div>
+                  <span
+                    @click="triggerInput('filter-'+index+'-check')"
+                    aria-hidden="true"
+                  >{{ genre.name }}</span>
+                </li>
+              </ul>
+            </form>
+          </div>
 
-   
-    <div id="nav-icon" role="button" aria-haspopup="true" @click="menuVisible = !menuVisible">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="controls" aria-controls="movieList">
-      <div class="drawer-on-mobile container">
-        <div v-if="genres" class="filter-checkboxes">
-          <h4 class="text-center">Filter By Genre</h4>
-          <form id="genre-filters" aria-label="Genre Filters">
-            <ul>
-              <li
-                v-for="(genre,index) in genres"
-                :key="index"
-                class="list-group-item d-flex align-items-center"
-              >
-                <div class="form-check form-check-inline form-check-switch form-check-gold">
-                  <input
-                    :aria-label="'Filter by '+genre.name"
-                    class="form-check-input"
-                    type="checkbox"
-                    v-model="genre.checked"
-                    :id="'filter-'+index+'-check'"
-                    v-on:change="getfilteredMovies"
-                  >
-                  <label class="form-check-label" :for="'filter-'+index+'-check'">{{ genre.name }}</label>
-                </div>
-                <span
-                  @click="triggerInput('filter-'+index+'-check')"
-                  aria-hidden="true"
-                >{{ genre.name }}</span>
-              </li>
-            </ul>
-          </form>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-sm-6">
-            <h4 class="text-center">Filter By Rating:</h4>
-            <div class="rating-wrap">
-              <div class="star-ratings">
-                <div class="star-ratings-top" :style="'width:'+rating*10+'%'">
-                  <span>★</span>
-                  <span>★</span>
-                  <span>★</span>
-                  <span>★</span>
-                  <span>★</span>
-                </div>
-                <div class="star-ratings-bottom">
-                  <span>★</span>
-                  <span>★</span>
-                  <span>★</span>
-                  <span>★</span>
-                  <span>★</span>
+          <div class="row justify-content-center">
+            <div class="col-sm-6">
+              <h4 class="text-center">Filter By Rating:</h4>
+              <div class="rating-wrap">
+                <div class="star-ratings">
+                  <div class="star-ratings-top" :style="'width:'+rating*10+'%'">
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                  </div>
+                  <div class="star-ratings-bottom">
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <vue-slider
-              v-model="rating"
-              :min="0"
-              :max="10"
-              :lazy="true"
-              :interval="0.5"
-              @change="getfilteredMovies"
-            ></vue-slider>
+              <vue-slider
+                v-model="rating"
+                :min="0"
+                :max="10"
+                :lazy="true"
+                :interval="0.5"
+                @change="getfilteredMovies"
+              ></vue-slider>
+            </div>
           </div>
         </div>
       </div>
     </div>
-     </div>
+    <div v-if="this.loading" class="d-flex justify-content-center mt-30 mb-30">
+  <div  class="spinner-grow text-gold" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+</div>
+    
     <div
-      v-if="filteredMovies && filteredMovies.length > 0"
+      v-if="filteredMovies && filteredMovies.length > 0 && !this.loading"
       class="container-fluid"
       id="movieList"
       aria-live="polite"
