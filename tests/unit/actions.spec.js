@@ -2,10 +2,10 @@ jest.mock("@/api");
 import api from "@/api";
 import flushPromises from "flush-promises";
 import actions from "@/store/actions";
-import moviesFixture from "./fixtures/movies";
-import genresFixture from "./fixtures/genres";
-import moviesGenresFixture from "./fixtures/moviesAndGenres";
-import filteredGenresFixture from "./fixtures/filteredgenres";
+// import moviesFixture from "./fixtures/movies";
+// import genresFixture from "./fixtures/genres";
+// import moviesGenresFixture from "./fixtures/moviesAndGenres";
+// import filteredGenresFixture from "./fixtures/filteredgenres";
 
 describe("store actions", () => {
   let commit, dispatch;
@@ -20,7 +20,7 @@ This test was intended to test the action that dispatches the other actions
 Unfortunately it doesn't work and there is no info in the docs
 
 There is an open issue here with a possible solution. https://github.com/vuejs/vuex/issues/939
-Which I could implement with more time, I'll revert to testing the individual movie actions
+Which I would implement with more time, I'll revert to testing the individual movie actions
 
 */
 
