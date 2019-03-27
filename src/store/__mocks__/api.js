@@ -1,4 +1,4 @@
-import moviesFixture from "../../../tests/unit/fixtures/movies";
+import moviesFixture from "../../../tests/unit/fixtures/moviesAndGenres";
 import genresFixture from "../../../tests/unit/fixtures/genres";
 
 export default {
