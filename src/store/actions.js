@@ -17,7 +17,9 @@ export default {
     return new Promise(async (resolve, reject) => {
       try {
         const genres = await api.getGenres();
+        commit('SET_LOAD_STATUS', 2);
         return resolve(genres);
+        
       } catch (error) {
         reject(error);
         commit('SET_LOAD_STATUS', 3);
