@@ -7,7 +7,7 @@ With Help from Vue-cli, Bootstrap.
 
 ### My Pre-Dev Assumptions
 
-I'm going to try to test as much as I can, and TDD (which is a bit out of my comfort zone) as much as possible within the time constraints (I only had 24 hrs 🕐⚡ free at the weekend plus an hour here and there in the evenings).
+I'm going to try to test as much as I can, and TDD as much as possible (which is a bit out of my comfort zone as I usually test post-hoc) within the time constraints (I only had 24 hrs 🕐⚡ free at the weekend plus an hour here and there in the evenings).
 
 I'm envisaging the app to be made up of a main user view with filters, and a Movie List component and a rating slider.
 
