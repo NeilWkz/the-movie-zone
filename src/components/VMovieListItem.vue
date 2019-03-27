@@ -1,6 +1,10 @@
 <script>
+import VStarRating from "@/components/VStarRating";
 export default {
   name: "MovieListItem",
+  components: {
+    VStarRating
+  },
   props: {
     movie: {
       type: Object
@@ -32,7 +36,7 @@ export default {
       <img v-if="moviePosterSrc" :src="moviePosterSrc" alt>
       <div class="card-body">
       <h5 class="card-title text-center">{{movie.title}}</h5>
-
+      <VStarRating :rating="movie.vote_average" />
       <ul class="genre-list">
         <li v-for="(genre_title) in movie.genre_titles" :key="genre_title.id"><h6 class="badge badge-midnight">{{genre_title.name}}</h6></li>
       </ul>

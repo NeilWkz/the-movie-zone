@@ -80,11 +80,18 @@ h6 {
 .filter-checkboxes {
   @include vertical-padding();
   form ul {
+    padding-left: 0;
+    
+    //one column list for narrow phones iphone SE etc
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.75rem;
-    padding-left: 0;
+    @media (min-width: 374px) {
+      //two column for
+     
+      grid-template-columns: 1fr 1fr;
+     
+    }
 
     @include media-breakpoint-up(sm) {
       grid-template-columns: 1fr 1fr;
@@ -101,12 +108,11 @@ h6 {
   @include vertical-padding();
   width: 100%;
   color: $midnight;
-
+  overflow:hidden;
   display: grid;
   grid-column-gap: 5vw;
   grid-row-gap: 1.5rem;
-  // we're going to kick into 2 columns when we get to phablets
-  @media (min-width: 413px) {
+  @include media-breakpoint-up(sm) {
     grid-template-columns: 1fr 1fr;
   }
   @include media-breakpoint-up(md) {
@@ -128,11 +134,20 @@ h6 {
     height: auto;
   }
   .card {
-    .figure {
-      margin: 0;
+    figure {
+
+      margin: 0 0 1.25rem;
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
     }
     .card-body {
       padding-bottom: 0;
+    }
+    .star-ratings {
+      width: 105px;
+      height: 31px;
+      overflow:hidden;
     }
     .genre-list {
       padding: 1rem 0 0;
@@ -141,6 +156,7 @@ h6 {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      margin: 0;
       @include media-breakpoint-up(md) {
         display: inline-grid;
         grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
@@ -192,9 +208,6 @@ h6 {
   font-size: 25px;
   height: 25px;
   width: 100px;
-  @include media-breakpoint-up(sm) {
-    width: 125px;
-  }
   margin: -15px auto 0;
   position: relative;
   padding: 0;

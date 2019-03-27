@@ -5,6 +5,7 @@ import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import hero from "@/components/hero";
 import VueSlider from "vue-slider-component";
 import VNoResults from "@/components/VNoResults";
+import VStarRating from "@/components/VStarRating";
 import _ from "lodash";
 
 export default {
@@ -14,7 +15,8 @@ export default {
     VRatingRangeCtrl,
     VueSlider,
     hero,
-    VNoResults
+    VNoResults,
+    VStarRating
   },
   computed: {
     ...mapState({
@@ -135,22 +137,8 @@ export default {
             <div class="col-sm-6">
               <h4 class="text-center">Filter By Rating:</h4>
               <div class="rating-wrap">
-                <div class="star-ratings">
-                  <div class="star-ratings-top" :style="'width:'+rating*10+'%'">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                  </div>
-                  <div class="star-ratings-bottom">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                  </div>
-                </div>
+                
+                 <VStarRating :rating="rating" />
               </div>
 
               <vue-slider

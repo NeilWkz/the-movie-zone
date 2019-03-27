@@ -17,10 +17,7 @@ exports[`UserView renders the component 1`] = `
           <div class="col-sm-6">
             <h4 class="text-center">Filter By Rating:</h4>
             <div class="rating-wrap">
-              <div class="star-ratings">
-                <div class="star-ratings-top" style="width: 0%;"><span>★</span> <span>★</span> <span>★</span> <span>★</span> <span>★</span></div>
-                <div class="star-ratings-bottom"><span>★</span> <span>★</span> <span>★</span> <span>★</span> <span>★</span></div>
-              </div>
+              <vstarrating-stub rating="0"></vstarrating-stub>
             </div>
             <vue-slider-stub value="0" direction="ltr" dotsize="14" min="0" max="10" interval="0.5" clickable="true" duration="0.5" lazy="true" tooltip="focus" enablecross="true" order="true" process="true"></vue-slider-stub>
           </div>
