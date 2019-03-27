@@ -4,6 +4,7 @@ import VMovieList from "@/components/VMovieList";
 import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import hero from "@/components/hero";
 import VueSlider from "vue-slider-component";
+import VNoResults from "@/components/VNoResults";
 import _ from "lodash";
 
 export default {
@@ -12,7 +13,8 @@ export default {
     VMovieList,
     VRatingRangeCtrl,
     VueSlider,
-    hero
+    hero,
+    VNoResults
   },
   computed: {
     ...mapState({
@@ -76,18 +78,7 @@ export default {
     return {
       filteredMovies: [],
       rating: 0,
-      menuVisible: false,
-      directors: [
-        "Alejandro Jodorowsky",
-        "Emir Kusturica",
-        "Kenneth Anger",
-        "Maya Deren",
-        "John Waters",
-        "Birgit Hein",
-        "The Kuchar brothers",
-        "Sarah Jacobson",
-        "Melvin Van Peebles"
-      ]
+      menuVisible: false
     };
   },
   mounted() {
@@ -100,6 +91,8 @@ export default {
 <template>
   <div>
     <hero/>
+
+    <!-- If I had more time, I should have put the controls into a component -->
     <div class="wrap-controls" v-bind:class="[{ opened: menuVisible }, 'container']">
       <div id="nav-icon" role="button" aria-haspopup="true" @click="menuVisible = !menuVisible">
         <span></span>
@@ -174,11 +167,11 @@ export default {
       </div>
     </div>
     <div v-if="this.loading" class="d-flex justify-content-center mt-30 mb-30">
-  <div  class="spinner-grow text-gold" role="status">
-      <span class="sr-only">Loading...</span>
+      <div class="spinner-grow text-gold" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
-</div>
-    
+
     <div
       v-if="filteredMovies && filteredMovies.length > 0"
       class="container-fluid"
@@ -187,22 +180,8 @@ export default {
     >
       <VMovieList :movies="this.filteredMovies"/>
     </div>
-    <div class="container" v-else>
-      <div class="row justify-content-center">
-        <div class="col-10 mt-35">
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container text-center">
-              <h3>Sorry no movies in cinemas match your exacting Standards...😊</h3>
-              <p class="lead">
-                Have you thought about getting into
-                <span
-                  class="random-director"
-                >{{directors[Math.floor(Math.random() * directors.length)]}}</span>?
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div v-else>
+      <VNoResults/>
     </div>
   </div>
 </template>

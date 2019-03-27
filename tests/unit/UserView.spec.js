@@ -7,6 +7,7 @@ import Vuex from "vuex";
 import UserView from "@/views/UserView";
 import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import VMovieList from "@/components/VMovieList";
+import VNoResults from "@/components/VNoResults";
 import initialState from "@/store/state";
 import actions from "@/store/actions";
 import moviesFixture from "./fixtures/movies";
@@ -31,7 +32,7 @@ describe("UserView", () => {
       wrapper,
       userMovieList: () => wrapper.find(VMovieList),
       userRatingRangeCtrl: () => wrapper.find(VRatingRangeCtrl),
-      director: () => wrapper.find('.random-director')
+      userDirector: () => wrapper.find(VNoResults)
     }
   }
 
@@ -41,6 +42,14 @@ describe("UserView", () => {
     };
   });
   
+   it('renders the component', () => {
+     // arrange
+     const {
+       wrapper
+     } = build()
+     // assert
+     expect(wrapper.html()).toMatchSnapshot()
+   })
 
 
   it("will not render the movie list if Filtered movies is false", () => {
@@ -60,7 +69,5 @@ describe("UserView", () => {
      //assert
      expect(actions.GET_ALL_DATA).toHaveBeenCalled();
    });
-
-
  
 });

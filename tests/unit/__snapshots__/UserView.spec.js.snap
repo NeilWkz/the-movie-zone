@@ -3,37 +3,34 @@
 exports[`UserView renders the component 1`] = `
 <div>
   <hero-stub></hero-stub>
-  <div aria-controls="movieList" class="container">
-    <div class="filter-checkboxes">
-      <h3 class="text-center mb-20">Filter By Genre</h3>
-      <form id="genre-filters" aria-label="Genre Filters">
-        <ul></ul>
-      </form>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-sm-6">
-        <h3 class="text-center mb-1">Filter By Rating:</h3>
-        <div class="rating-wrap">
-          <div class="star-ratings">
-            <div class="star-ratings-top" style="width: 0%;"><span>★</span> <span>★</span> <span>★</span> <span>★</span> <span>★</span></div>
-            <div class="star-ratings-bottom"><span>★</span> <span>★</span> <span>★</span> <span>★</span> <span>★</span></div>
+  <div class="wrap-controls container">
+    <div id="nav-icon" role="button" aria-haspopup="true"><span></span> <span></span> <span></span> <span></span></div>
+    <div aria-controls="movieList" class="controls">
+      <div class="drawer-on-mobile container">
+        <div class="filter-checkboxes">
+          <h4 class="text-center">Filter By Genre</h4>
+          <form id="genre-filters" aria-label="Genre Filters">
+            <ul></ul>
+          </form>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-sm-6">
+            <h4 class="text-center">Filter By Rating:</h4>
+            <div class="rating-wrap">
+              <div class="star-ratings">
+                <div class="star-ratings-top" style="width: 0%;"><span>★</span> <span>★</span> <span>★</span> <span>★</span> <span>★</span></div>
+                <div class="star-ratings-bottom"><span>★</span> <span>★</span> <span>★</span> <span>★</span> <span>★</span></div>
+              </div>
+            </div>
+            <vue-slider-stub value="0" direction="ltr" dotsize="14" min="0" max="10" interval="0.5" clickable="true" duration="0.5" lazy="true" tooltip="focus" enablecross="true" order="true" process="true"></vue-slider-stub>
           </div>
         </div>
-        <vue-slider-stub value="0" direction="ltr" dotsize="14" min="0" max="10" interval="0.5" clickable="true" duration="0.5" lazy="true" tooltip="focus" enablecross="true" order="true" process="true"></vue-slider-stub>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10  mt-35">
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container text-center">
-            <h1 class="display-4">Sorry no movies in cinemas match your exacting Standards...😊</h1>
-            <p class="lead">Have you thought about getting into <span class="random-director">Emir Kusturica</span>?</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!---->
+  <div>
+    <vnoresults-stub></vnoresults-stub>
   </div>
 </div>
 `;

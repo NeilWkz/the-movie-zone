@@ -7,8 +7,8 @@ import genresFixture from "./fixtures/genres";
 describe("api", () => {
   it("gets movies from the api", async () => {
     // arrange
-     const request = nock("https://api.themoviedb.org/3/movie")
-      .get("/now_playing")
+     const movieRequest = nock("https://api.themoviedb.org/3")
+      .get("/movie/now_playing")
       .query({
         language:'en-US',
           page: 1,
@@ -22,13 +22,13 @@ describe("api", () => {
 
     // assert
     expect(movies).toEqual(moviesFixture.results);
-    expect(request.isDone()).toBe(true);
+    expect(movieRequest.isDone()).toBe(true);
   });
 
   it("Gets Genres from the api", async () => {
       //arrange
-      const request = nock("https://api.themoviedb.org/3/genre/movie")
-      .get("/list")
+      const request = nock("https://api.themoviedb.org/3")
+      .get("/genre/movie/list")
       .query({
         language:'en-US',
           api_key: process.env.VUE_APP_API_KEY
