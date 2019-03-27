@@ -35,11 +35,12 @@ export default {
       loading: function(state) {
         switch (state.loadStatus) {
           case 1:
-          case 2:
             return false;
             break;
+          case 2:
           case 3:
             return true;
+
             break;
         }
       }
@@ -92,7 +93,7 @@ export default {
   <div>
     <hero/>
 
-    <!-- If I had more time, I should have put the controls into a component -->
+    <!-- I should have put the controls into a component -->
     <div class="wrap-controls" v-bind:class="[{ opened: menuVisible }, 'container']">
       <div id="nav-icon" role="button" aria-haspopup="true" @click="menuVisible = !menuVisible">
         <span></span>
@@ -151,7 +152,7 @@ export default {
         </div>
       </div>
     </div>
-    <div v-if="this.loading" class="d-flex justify-content-center mt-30 mb-30">
+    <div v-if="this.loading" class="d-flex justify-content-center mt-5 mb-5">
       <div class="spinner-grow text-gold" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -166,7 +167,7 @@ export default {
       <VMovieList :movies="this.filteredMovies"/>
     </div>
     <div v-else>
-      <VNoResults/>
+      <VNoResults v-if="!this.loading" v-cloak/>
     </div>
     <footer>
       <div class="container-fluid">

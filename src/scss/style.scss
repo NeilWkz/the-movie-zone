@@ -38,6 +38,7 @@ h6 {
 .text-gold {
   color: $gold;
 }
+[v-cloak] > * { opacity: 0; }
 .hero {
   display: flex;
   align-items: center;
@@ -282,6 +283,9 @@ h6 {
 .jumbotron {
   margin-top: 3rem;
   color: $midnight;
+  h3 {
+    line-height: 1.45;
+  }
   @include media-breakpoint-up(md) {
     background: $offwhite;
   }
