@@ -1,7 +1,6 @@
 <script>
 import { mapState } from "vuex";
 import VMovieList from "@/components/VMovieList";
-import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import hero from "@/components/hero";
 import VueSlider from "vue-slider-component";
 import VNoResults from "@/components/VNoResults";
@@ -12,7 +11,6 @@ export default {
   name: "UserView",
   components: {
     VMovieList,
-    VRatingRangeCtrl,
     VueSlider,
     hero,
     VNoResults,
@@ -137,8 +135,7 @@ export default {
             <div class="col-sm-6">
               <h4 class="text-center">Filter By Rating:</h4>
               <div class="rating-wrap">
-                
-                 <VStarRating :rating="rating" />
+                <VStarRating :rating="rating"/>
               </div>
 
               <vue-slider
@@ -171,5 +168,26 @@ export default {
     <div v-else>
       <VNoResults/>
     </div>
+    <footer>
+      <div class="container-fluid">
+        <div class="row pt-4 pb-4 justify-content-between">
+          <div class="col-4">
+            Made by
+            <a href="www.wkzdesign.co.uk/cv.php">Neil Ross</a>
+          </div>
+          <div class="col-4 text-right">
+            <span>
+              Hero Image by
+              <a
+                href="https://unsplash.com/photos/WqaS8uIUdn8?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+              >Ben Konfrst</a> on
+              <a
+                href="/search/photos/movies?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+              >Unsplash</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
