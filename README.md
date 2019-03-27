@@ -15,19 +15,20 @@ I'm going hit the API to get Movies and Genres and then dedupe the Genres.
 
 ### Retrospective Mea Culpa
 
-The requirements are fullfilled, but at that velocity TDD went out of the window around the 10 hours mark. I like to say that all success is ultimately a by-product of a greater failure, but this is my failure as I was overambitious within the time I had available. If I had more time available I would have wanted to:
+The requirements are fullfilled, but at that velocity TDD went out of the window around the 10 hours mark. I like to say that all success is ultimately a by-product of a greater failure, but this is my failure as I was overambitious within the time I had available. 
 
-#### Dev I wanted to do
-- componentised the controls
-- written unit tests for the presentational components
+If I had more time available I would have wanted to:
+
+#### Further Dev
+- componentise the controls
+- written more complete unit tests for the presentational components
 - written an end to end test
 - Used modernizer to support non-modern browsers
-- implemented src set
-- lazy-loaded the images
+- implemented src set & lazy-loaded the images
 
-#### UX enhancements I wanted
+#### UX enhancements
 - Improve the Mobile Experience, with a reset filters button
-- Add more user data to the card
+- Add more information to the card
 - Add a slide out pane with full information about the movie
 
 ## Project setup
