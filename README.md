@@ -7,7 +7,7 @@ With Help from Vue-cli, Bootstrap.
 
 ### My Pre-Dev Assumptions
 
-I'm going to try to test as much as I can, and TDD (which is a bit out of my comfort zone) as much as possible within the time constraints (I only had 24 hrs 🕐⚡ free at the weekend).
+I'm going to try to test as much as I can, and TDD (which is a bit out of my comfort zone) as much as possible within the time constraints (I only had 24 hrs 🕐⚡ free at the weekend plus an hour here and there in the evenings).
 
 I'm envisaging the app to be made up of a main user view with filters, and a Movie List component and a rating slider.
 
@@ -15,7 +15,20 @@ I'm going hit the API to get Movies and Genres and then dedupe the Genres.
 
 ### Retrospective Mea Culpa
 
-The requirements are fullfilled, but at that velocity TDD went out of the window around the 10 hours mark. I like to say that all success is ultimately a by-product of a greater failure, but this is my failure as I was overambitious within the time I had available. I refactored around hour 16 which made a lot of my original tests fail, and I did not have the time to rewrite them in line with the refactor. The UX is missing some basic requirements e.g: loading indicators, filter transitions, a better filtering layout for mobile and a fine style pass to make it a bit less ugly.
+The requirements are fullfilled, but at that velocity TDD went out of the window around the 10 hours mark. I like to say that all success is ultimately a by-product of a greater failure, but this is my failure as I was overambitious within the time I had available. If I had more time available I would have wanted to:
+
+#### Dev I wanted to do
+- componentised the controls
+- written unit tests for the presentational components
+- written an end to end test
+- Used modernizer to support non-modern browsers
+- implemented src set
+- lazy-loaded the images
+
+#### UX enhancements I wanted
+- Improve the Mobile Experience, with a reset filters button
+- Add more user data to the card
+- Add a slide out pane with full information about the movie
 
 ## Project setup
 ```
