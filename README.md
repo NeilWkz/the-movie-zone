@@ -1,7 +1,7 @@
 # The Movie Zone
 (I bet everyone makes that pun..)
 
-An App for displaying "Now Showing Movies", build with Vue, Vuex.
+An App for displaying "Now Showing Movies", built with Vue, Vuex.
 
 With Help from Vue-cli, Bootstrap.
 **DEMO**: <https://neilwkz.github.io/the-movie-zone/>
