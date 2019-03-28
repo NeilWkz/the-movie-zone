@@ -28,7 +28,7 @@ If I had more time available I would have wanted to:
 - implemented src set & lazy-loaded the images
 
 #### UX enhancements
-- Improve the Mobile Experience, with a reset filters button
+- Improve the Mobile Experience, with a reset filters button & intergrating fastclick
 - Add more information to the card
 - Add a slide out pane with full information about the movie
 
