@@ -4,6 +4,7 @@
 An App for displaying "Now Showing Movies", build with Vue, Vuex.
 
 With Help from Vue-cli, Bootstrap.
+**DEMO**: <https://neilwkz.github.io/the-movie-zone/>
 
 ### My Pre-Dev Assumptions
 
