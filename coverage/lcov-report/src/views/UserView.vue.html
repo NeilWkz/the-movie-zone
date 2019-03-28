@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/views/UserView.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/views</a> UserView.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script&gt;
+<span class="cstat-no" title="statement not covered" >import { mapState } from "vuex";</span>
+<span class="cstat-no" title="statement not covered" >import VMovieList from "@/components/VMovieList";</span>
+<span class="cstat-no" title="statement not covered" >import hero from "@/components/hero";</span>
+<span class="cstat-no" title="statement not covered" >import VueSlider from "vue-slider-component";</span>
+<span class="cstat-no" title="statement not covered" >import VNoResults from "@/components/VNoResults";</span>
+<span class="cstat-no" title="statement not covered" >import VStarRating from "@/components/VStarRating";</span>
+<span class="cstat-no" title="statement not covered" >import _ from "lodash";</span>
+&nbsp;
+export default {
+  name: "UserView",
+  components: {
+    VMovieList,
+    VueSlider,
+    hero,
+    VNoResults,
+    VStarRating
+  },
+  computed: {
+    ...mapState({
+      movies: "movies",
+      genres: "genres",
+      loadStatus: "loadStatus",
+&nbsp;
+<span class="fstat-no" title="function not covered" >      selectedFilters: function(state) {</span>
+<span class="cstat-no" title="statement not covered" >        let filters = [];</span>
+<span class="cstat-no" title="statement not covered" >        let filterGenres = _.values(this.genres);</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        let checkedFiters = filterGenres.filter(obj =&gt; obj.checked);</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        checkedFiters.forEach(element =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          filters.push(element.id);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        return filters;</span>
+      },
+&nbsp;
+<span class="fstat-no" title="function not covered" >      loading: function(state) {</span>
+<span class="cstat-no" title="statement not covered" >        switch (state.loadStatus) {</span>
+          case 1:
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+          case 2:
+          case 3:
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        }
+      }
+    }),
+    moviesArr(state) {
+<span class="cstat-no" title="statement not covered" >      return _.values(state.movies);</span>
+    }
+  },
+  methods: {
+<span class="fstat-no" title="function not covered" >    getfilteredMovies: function() {</span>
+<span class="cstat-no" title="statement not covered" >      this.filteredMovies = this.moviesArr;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      let filteredMoviesByfilters = [];</span>
+<span class="cstat-no" title="statement not covered" >      let filteredMoviesByRating = [];</span>
+      // if filters where selected
+<span class="cstat-no" title="statement not covered" >      if (this.selectedFilters.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        filteredMoviesByfilters = this.filteredMovies.filter(obj =&gt;</span></span>
+          //compare every filter in the object to genre_ids
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >          this.selectedFilters.every(val =&gt; obj.genre_ids.indexOf(val) &gt;= 0)</span></span>
+        );
+        //  if the range slder is selected then filter according to popularity
+<span class="cstat-no" title="statement not covered" >        this.filteredMovies = filteredMoviesByfilters;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.rating &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        filteredMoviesByRating = this.filteredMovies.filter(val =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          return val.vote_average &gt; this.rating;</span>
+        });
+<span class="cstat-no" title="statement not covered" >        this.filteredMovies = filteredMoviesByRating;</span>
+      }
+    },
+    triggerInput(target) {
+<span class="cstat-no" title="statement not covered" >      document.getElementById(target).click();</span>
+    }
+  },
+  data() {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      filteredMovies: [],
+      rating: 0,
+      menuVisible: false
+    };
+  },
+  mounted() {
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    this.$store.dispatch("GET_ALL_DATA").then(() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.getfilteredMovies();</span>
+    });
+  }
+};
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;hero/&gt;
+&nbsp;
+    &lt;!-- I should have put the controls into a component --&gt;
+    &lt;div class="wrap-controls" v-bind:class="[{ opened: menuVisible }, 'container']"&gt;
+      &lt;div id="nav-icon" role="button" aria-haspopup="true" @click="menuVisible = !menuVisible"&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="controls" aria-controls="movieList"&gt;
+        &lt;div class="drawer-on-mobile container"&gt;
+          &lt;div v-if="genres" class="filter-checkboxes"&gt;
+            &lt;h4 class="text-center"&gt;Filter By Genre&lt;/h4&gt;
+            &lt;form id="genre-filters" aria-label="Genre Filters"&gt;
+              &lt;ul&gt;
+                &lt;li
+                  v-for="(genre,index) in genres"
+                  :key="index"
+                  class="list-group-item d-flex align-items-center"
+                &gt;
+                  &lt;div class="form-check form-check-inline form-check-switch form-check-gold"&gt;
+                    &lt;input
+                      :aria-label="'Filter by '+genre.name"
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="genre.checked"
+                      :id="'filter-'+index+'-check'"
+                      v-on:change="getfilteredMovies"
+                    &gt;
+                    &lt;label class="form-check-label" :for="'filter-'+index+'-check'"&gt;{{ genre.name }}&lt;/label&gt;
+                  &lt;/div&gt;
+                  &lt;span
+                    @click="triggerInput('filter-'+index+'-check')"
+                    aria-hidden="true"
+                  &gt;{{ genre.name }}&lt;/span&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+&nbsp;
+          &lt;div class="row justify-content-center"&gt;
+            &lt;div class="col-sm-6"&gt;
+              &lt;h4 class="text-center"&gt;Filter By Rating:&lt;/h4&gt;
+              &lt;div class="rating-wrap"&gt;
+                &lt;VStarRating :rating="rating"/&gt;
+              &lt;/div&gt;
+&nbsp;
+              &lt;vue-slider
+                v-model="rating"
+                :min="0"
+                :max="10"
+                :lazy="true"
+                :interval="0.5"
+                @change="getfilteredMovies"
+              &gt;&lt;/vue-slider&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div v-if="this.loading" class="d-flex justify-content-center mt-5 mb-5"&gt;
+      &lt;div class="spinner-grow text-gold" role="status"&gt;
+        &lt;span class="sr-only"&gt;Loading...&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&nbsp;
+    &lt;div
+      v-if="filteredMovies &amp;&amp; filteredMovies.length &gt; 0"
+      class="container-fluid"
+      id="movieList"
+      aria-live="polite"
+    &gt;
+      &lt;VMovieList :movies="this.filteredMovies"/&gt;
+    &lt;/div&gt;
+    &lt;div v-else&gt;
+      &lt;VNoResults v-if="!this.loading" v-cloak/&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+      &lt;div class="container-fluid"&gt;
+        &lt;div class="row pt-4 pb-4 justify-content-between"&gt;
+          &lt;div class="col-4"&gt;
+            Made by
+            &lt;a href="www.wkzdesign.co.uk/cv.php"&gt;Neil Ross&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="col-4 text-right"&gt;
+            &lt;span&gt;
+              Hero Image by
+              &lt;a
+                href="https://unsplash.com/photos/WqaS8uIUdn8?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+              &gt;Ben Konfrst&lt;/a&gt; on
+              &lt;a
+                href="/search/photos/movies?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+              &gt;Unsplash&lt;/a&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 28 2019 08:02:12 GMT+0000 (GMT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
