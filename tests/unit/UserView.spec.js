@@ -5,12 +5,10 @@ import {
 } from "@vue/test-utils";
 import Vuex from "vuex";
 import UserView from "@/views/UserView";
-import VRatingRangeCtrl from "@/components/VRatingRangeCtrl";
 import VMovieList from "@/components/VMovieList";
 import VNoResults from "@/components/VNoResults";
 import initialState from "@/store/state";
 import actions from "@/store/actions";
-import moviesFixture from "./fixtures/movies";
 
 
 const localVue = createLocalVue();

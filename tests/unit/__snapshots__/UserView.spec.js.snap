@@ -29,5 +29,18 @@ exports[`UserView renders the component 1`] = `
   <div>
     <vnoresults-stub></vnoresults-stub>
   </div>
+  <footer>
+    <div class="container-fluid">
+      <div class="row pt-4 pb-4 justify-content-between">
+        <div class="col-4">
+          Made by
+          <a href="www.wkzdesign.co.uk/cv.php">Neil Ross</a></div>
+        <div class="col-4 text-right"><span>
+            Hero Image by
+            <a href="https://unsplash.com/photos/WqaS8uIUdn8?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ben Konfrst</a> on
+            <a href="/search/photos/movies?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></div>
+      </div>
+    </div>
+  </footer>
 </div>
 `;
