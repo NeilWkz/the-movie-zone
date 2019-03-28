@@ -1,9 +1,7 @@
 const path = require("path");
 module.exports = {
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'scss',
-      patterns: [path.resolve(__dirname, '/src/scss/style.scss')]
-    }
-  }
+    publicPath: process.env.NODE_ENV === 'production' ?
+      '/the-movie-zone/' :
+      '/'
+  
 }
