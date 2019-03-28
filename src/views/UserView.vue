@@ -174,7 +174,7 @@ export default {
         <div class="row pt-4 pb-4 justify-content-between">
           <div class="col-4">
             Made by
-            <a href="www.wkzdesign.co.uk/cv.php">Neil Ross</a>
+            <a href="http://www.wkzdesign.co.uk/cv.php">Neil Ross</a>
           </div>
           <div class="col-4 text-right">
             <span>
